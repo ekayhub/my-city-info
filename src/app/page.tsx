@@ -26,8 +26,8 @@ export default function Home() {
       {/* 상단 헤더 */}
       <header className="sticky top-0 z-20 border-b border-purple-100/40 bg-white/70 backdrop-blur-md">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-200/80 text-purple-700 shadow-sm">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-200/80 text-purple-700 shadow-sm transition-transform group-hover:scale-105">
               <span className="text-xl">🌸</span>
             </div>
             <div>
@@ -36,11 +36,21 @@ export default function Home() {
               </h1>
               <p className="text-[10px] text-stone-500 sm:text-xs font-medium">우리 동네 소소하고 따뜻한 소식지</p>
             </div>
+          </Link>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <nav className="flex items-center gap-4 sm:gap-6">
+              <Link href="/" className="text-xs sm:text-sm font-bold text-purple-600 border-b-2 border-purple-500 pb-1">
+                홈
+              </Link>
+              <Link href="/blog" className="text-xs sm:text-sm font-semibold text-stone-600 hover:text-purple-600 transition-colors">
+                블로그
+              </Link>
+            </nav>
+            <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-purple-50/80 border border-purple-100/60 px-3 py-1 text-xs font-bold text-purple-600 shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+              새 소식
+            </span>
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-50/80 border border-purple-100/60 px-3 py-1 text-xs font-bold text-purple-600 shadow-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-            새 소식
-          </span>
         </div>
       </header>
 
@@ -65,7 +75,7 @@ export default function Home() {
             {events.map((event) => (
               <Link
                 key={event.id}
-                href={`/info/${event.id}`}
+                href="/blog"
                 className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/40 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-100/50 hover:border-purple-200/50 cursor-pointer"
               >
                 <div>
@@ -123,7 +133,7 @@ export default function Home() {
             {benefits.map((benefit) => (
               <Link
                 key={benefit.id}
-                href={`/info/${benefit.id}`}
+                href="/blog"
                 className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/40 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-100/50 hover:border-sky-200/50 cursor-pointer"
               >
                 <div>
